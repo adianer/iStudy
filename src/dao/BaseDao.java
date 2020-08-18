@@ -5,7 +5,7 @@ import java.sql.*;
 public class BaseDao {
     //数据库基础信息
     private static String driver = "com.mysql.jdbc.Driver";
-    private static String url = "jdbc:mysql://127.0.0.1:3306/book?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&useSSL=false&serverTimezone=GMT%2B8";
+    private static String url = "jdbc:mysql://127.0.0.1:3306/istudy?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&useSSL=false&serverTimezone=GMT%2B8";
     private static String user = "root";
     private static String password = "123456.";
 

@@ -1,6 +1,8 @@
 package dao;
 
 import entity.Comment;
+import entity.Video;
+import utils.Page;
 
 
 import java.sql.SQLException;
