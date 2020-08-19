@@ -9,7 +9,7 @@ public class BaseDao {
     private static String user = "root";
     private static String password = "123456.";
 
-    protected Connection conn;
+    protected static  Connection conn;
     //加载数据库驱动
     static {
         try {
@@ -23,7 +23,7 @@ public class BaseDao {
     /**
      * 获取连接
      */
-    public Connection getConnection() {
+    public static Connection getConnection() {
         try {
             if (conn == null || conn.isClosed()) {
                 conn = DriverManager.getConnection(url, user, password);
@@ -69,7 +69,6 @@ public class BaseDao {
      */
     public int executeUpdate(String sql, Object[] params) {
         int result = 0;
-        conn = this.getConnection();
         PreparedStatement pstmt = null;
         try {
             pstmt = conn.prepareStatement(sql);
@@ -86,7 +85,6 @@ public class BaseDao {
     //单语句修改
     public int executeUpdate(String sql) {
         int result = 0;
-        conn = this.getConnection();
         PreparedStatement pstmt = null;
         try {
             pstmt = conn.prepareStatement(sql);
@@ -100,7 +98,6 @@ public class BaseDao {
      * 单语句查询
      */
     public ResultSet executeQuery(String sql) {
-        conn = this.getConnection();
         PreparedStatement pstmt = null;
         ResultSet rs = null;
         try {
@@ -114,7 +111,6 @@ public class BaseDao {
 
     //语句+参数查询
     public ResultSet executeQuery(String sql,Object[] o) {
-        conn = this.getConnection();
         PreparedStatement pstmt = null;
         ResultSet rs = null;
         try {
